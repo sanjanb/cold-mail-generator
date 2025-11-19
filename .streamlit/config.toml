@@ -1,0 +1,10 @@
+# Streamlit Cloud Configuration
+# This file will be read by Streamlit Cloud for deployment configuration
+
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = false
+
+[browser]
+gatherUsageStats = false

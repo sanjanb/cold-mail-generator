@@ -1,0 +1,43 @@
+name: Deploy to Streamlit Cloud
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          python -c "
+          try:
+              from app.chains import Chain
+              from app.portfolio import Portfolio
+              from app.utils import clean_text
+              print('✅ All imports successful - Ready for deployment!')
+          except Exception as e:
+              print(f'❌ Import failed: {e}')
+              exit(1)
+          "
+
+      - name: Deployment Ready
+        run: |
+          echo "🚀 Code is ready for Streamlit Cloud deployment!"
+          echo "📝 Remember to add GROQ_API_KEY to Streamlit secrets"
