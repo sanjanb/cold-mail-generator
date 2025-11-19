@@ -79,8 +79,8 @@ except ImportError as e:
 
 
 def create_streamlit_app(llm, portfolio, clean_text):
-    st.title("📧 Cold Mail Generator")
-    url_input = st.text_input("Enter a URL:", value="https://jobs.nike.com/job/R-33460")
+    st.title("Cold Mail Generator")
+    url_input = st.text_input("Enter a URL:", value="https://www.wearedevelopers.com/en/companies/3853/picnic-technologies/47673/machine-learning-engineer")
     submit_button = st.button("Submit")
 
     if submit_button:
@@ -99,7 +99,11 @@ def create_streamlit_app(llm, portfolio, clean_text):
 
 
 if __name__ == "__main__":
-    chain = Chain()
-    portfolio = Portfolio()
-    st.set_page_config(layout="wide", page_title="Cold Email Generator", page_icon="📧")
-    create_streamlit_app(chain, portfolio, clean_text)
+    try:
+        chain = Chain()
+        portfolio = Portfolio()
+        st.set_page_config(layout="wide", page_title="Cold Email Generator", page_icon="📧")
+        create_streamlit_app(chain, portfolio, clean_text)
+    except Exception as e:
+        st.error(f"Failed to initialize application: {e}")
+        st.info("Please ensure all required files are present and environment variables are set.")
