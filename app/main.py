@@ -30,7 +30,7 @@ except ImportError as e:
 
 try:
     import unstructured
-    print(f"✓ Unstructured: {unstructured.__version__}")
+    print("✓ Unstructured: imported successfully")
 except ImportError as e:
     print(f"✗ Unstructured import failed: {e}")
 
