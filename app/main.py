@@ -29,29 +29,115 @@ def add_custom_css():
         background-color: #ffffff;
     }
     
-    /* Header styling */
-    .header-container {
-        background: #000000;
-        padding: 2rem;
-        border-radius: 4px;
-        margin-bottom: 2rem;
-        text-align: center;
-        color: white;
-        border: 1px solid #333333;
+    /* SaaS Header styling */
+    .saas-header {
+        background: #ffffff;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 0;
+        margin-bottom: 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
     
-    .header-title {
-        font-size: 2.2rem;
-        font-weight: 300;
+    .header-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .brand-section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .brand-logo {
+        font-size: 2rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .brand-info {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .brand-name {
+        font-size: 1.5rem;
+        font-weight: 600;
         margin: 0;
-        letter-spacing: 1px;
+        color: #1a1a1a;
     }
     
-    .header-subtitle {
-        font-size: 1rem;
-        opacity: 0.8;
-        margin-top: 0.5rem;
-        font-weight: 300;
+    .brand-tagline {
+        font-size: 0.85rem;
+        color: #666666;
+        margin: 0;
+        font-weight: 400;
+    }
+    
+    .nav-section {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+    }
+    
+    .nav-item {
+        color: #666666;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: color 0.2s ease;
+    }
+    
+    .nav-item.active {
+        color: #667eea;
+        border-bottom: 2px solid #667eea;
+        padding-bottom: 0.25rem;
+    }
+    
+    .nav-item:hover {
+        color: #667eea;
+    }
+    
+    .user-section {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .user-info {
+        color: #666666;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+    
+    .upgrade-btn {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.85rem;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    
+    .upgrade-btn:hover {
+        transform: translateY(-1px);
     }
     
     /* Input section styling */
@@ -63,23 +149,63 @@ def add_custom_css():
         margin-bottom: 2rem;
     }
     
-    /* Button styling */
+    /* SaaS Dashboard Container */
+    .dashboard-container {
+        background: #f8f9fa;
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+    
+    .dashboard-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+    
+    .saas-card {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Enhanced Button styling */
     .stButton > button {
-        background: #000000;
-        color: white;
-        font-weight: 400;
-        border: 1px solid #000000;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+        color: white !important;
+        font-weight: 600 !important;
+        border: none !important;
         padding: 0.75rem 2rem;
-        border-radius: 4px;
+        border-radius: 8px;
         font-size: 1rem;
         transition: all 0.2s ease;
         width: 100%;
-        letter-spacing: 0.5px;
+        letter-spacing: 0.3px;
+        text-transform: none !important;
     }
     
     .stButton > button:hover {
-        background: #333333;
-        border: 1px solid #333333;
+        transform: translateY(-2px) !important;
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+        background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%) !important;
+    }
+    
+    .stButton > button:active {
+        transform: translateY(0px) !important;
+    }
+    
+    /* Secondary button styling */
+    .stButton > button[kind="secondary"] {
+        background: transparent !important;
+        color: #667eea !important;
+        border: 1px solid #667eea !important;
+    }
+    
+    .stButton > button[kind="secondary"]:hover {
+        background: #667eea !important;
+        color: white !important;
     }
     
     /* Email output styling */
@@ -255,9 +381,85 @@ def add_custom_css():
         color: #000000 !important;
     }
     
-    /* Text styling overrides */
-    .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6 {
-        color: #000000 !important;
+    /* Text styling overrides with proper contrast */
+    .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6, 
+    .stMarkdown p, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3, 
+    .stMarkdown h4, .stMarkdown h5, .stMarkdown h6 {
+        color: #1a1a1a !important;
+    }
+    
+    /* Widget text corrections */
+    .stSelectbox label, .stTextInput label, .stTextArea label,
+    .stCheckbox label, .stRadio label, .stSlider label,
+    .stNumberInput label, .stDateInput label, .stTimeInput label {
+        color: #1a1a1a !important;
+        font-weight: 500 !important;
+    }
+    
+    .stSelectbox > div > div > div, 
+    .stTextInput > div > div > input,
+    .stTextArea > div > div > textarea {
+        color: #1a1a1a !important;
+        background-color: #ffffff !important;
+    }
+    
+    /* Metric styling improvements */
+    [data-testid="metric-container"] {
+        background: #ffffff !important;
+        border: 1px solid #e0e0e0 !important;
+        border-radius: 8px !important;
+        padding: 1.5rem !important;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    [data-testid="metric-container"] > div {
+        color: #1a1a1a !important;
+    }
+    
+    [data-testid="metric-container"] [data-testid="metric-value"] {
+        color: #667eea !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Expander improvements */
+    .streamlit-expanderHeader {
+        background: #ffffff !important;
+        border: 1px solid #e0e0e0 !important;
+        color: #1a1a1a !important;
+        font-weight: 600 !important;
+        border-radius: 8px !important;
+    }
+    
+    .streamlit-expanderContent {
+        border: 1px solid #e0e0e0 !important;
+        border-top: none !important;
+        background: #ffffff !important;
+    }
+    
+    /* Success/Error/Warning message styling */
+    .stSuccess, .stError, .stWarning, .stInfo {
+        border-radius: 8px !important;
+        border: none !important;
+    }
+    
+    .stSuccess > div {
+        background: #d1f2eb !important;
+        color: #00695c !important;
+    }
+    
+    .stError > div {
+        background: #ffebee !important;
+        color: #c62828 !important;
+    }
+    
+    .stWarning > div {
+        background: #fff8e1 !important;
+        color: #ef6c00 !important;
+    }
+    
+    .stInfo > div {
+        background: #e3f2fd !important;
+        color: #1565c0 !important;
     }
     
     /* Text input styling */
@@ -301,27 +503,61 @@ def add_custom_css():
     """, unsafe_allow_html=True)
 
 def add_header():
-    """Add minimal header"""
+    """Add SaaS-style header with navigation"""
     st.markdown("""
-    <div class="header-container">
-        <h1 class="header-title">Cold Mail Generator</h1>
-        <p class="header-subtitle">AI-Powered Email Generation</p>
+    <div class="saas-header">
+        <div class="header-nav">
+            <div class="brand-section">
+                <div class="brand-logo">📧</div>
+                <div class="brand-info">
+                    <h1 class="brand-name">EmailCraft AI</h1>
+                    <p class="brand-tagline">Professional Cold Email Generator</p>
+                </div>
+            </div>
+            <div class="nav-section">
+                <div class="nav-links">
+                    <span class="nav-item active">Generator</span>
+                    <span class="nav-item">Templates</span>
+                    <span class="nav-item">Analytics</span>
+                    <span class="nav-item">Pricing</span>
+                </div>
+                <div class="user-section">
+                    <span class="user-info">Free Plan</span>
+                    <button class="upgrade-btn">Upgrade</button>
+                </div>
+            </div>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
 def add_footer():
-    """Add professional footer with creator information"""
+    """Add SaaS-style footer"""
     st.markdown("""
     <div class="footer">
         <div class="footer-content">
             <div class="footer-brand">
-                © 2025 Cold Mail Generator
+                <div class="footer-logo">📧 EmailCraft AI</div>
+                <div class="footer-tagline">© 2025 Powered by AI Technology</div>
             </div>
             <div class="footer-links">
-                <span>Built by <strong>Sanjan B</strong></span>
-                <a href="https://github.com/sanjanb" target="_blank">GitHub</a>
-                <a href="https://sanjanb.github.io/" target="_blank">Portfolio</a>
-                <a href="https://github.com/sanjanb/cold-mail-generator" target="_blank">Source Code</a>
+                <div class="footer-section">
+                    <span class="footer-title">Product</span>
+                    <span class="footer-link">Features</span>
+                    <span class="footer-link">Pricing</span>
+                    <span class="footer-link">API</span>
+                </div>
+                <div class="footer-section">
+                    <span class="footer-title">Company</span>
+                    <a href="https://sanjanb.github.io/" target="_blank" class="footer-link">About</a>
+                    <a href="https://github.com/sanjanb" target="_blank" class="footer-link">Creator</a>
+                    <span class="footer-link">Contact</span>
+                </div>
+                <div class="footer-section">
+                    <span class="footer-title">Resources</span>
+                    <span class="footer-link">Documentation</span>
+                    <a href="https://github.com/sanjanb/cold-mail-generator" target="_blank" class="footer-link">Source Code</a>
+                    <span class="footer-link">Support</span>
+                </div>
             </div>
         </div>
     </div>
