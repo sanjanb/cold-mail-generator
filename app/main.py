@@ -40,11 +40,19 @@ def add_custom_css():
         border: 1px solid #333333;
     }
     
+    /* Force white text in header */
+    .header-container h1,
+    .header-container p,
+    .header-container * {
+        color: #ffffff !important;
+    }
+    
     .header-title {
         font-size: 2.2rem;
         font-weight: 300;
         margin: 0;
         letter-spacing: 1px;
+        color: #ffffff !important;
     }
     
     .header-subtitle {
@@ -52,6 +60,7 @@ def add_custom_css():
         opacity: 0.8;
         margin-top: 0.5rem;
         font-weight: 300;
+        color: #ffffff !important;
     }
     
     /* Input section styling */
@@ -82,6 +91,15 @@ def add_custom_css():
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    
+    /* Force white text for all button content */
+    .stButton > button,
+    .stButton > button *,
+    .stButton > button div,
+    .stButton > button p,
+    .stButton > button span {
+        color: #ffffff !important;
     }
     
     .stButton > button:hover {
@@ -305,16 +323,72 @@ def add_custom_css():
         transition: all 0.2s ease;
     }
     
-    .streamlit-expanderHeader:hover {
-        border-color: #e0e0e0 !important;
-        background: #f8f9fa !important;
+    /* Dark theme expander overrides */
+    [data-testid="stExpander"] summary {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border: 2px solid #333333 !important;
+        border-radius: 8px !important;
+        padding: 0.75rem 1rem !important;
     }
     
-    .streamlit-expanderContent {
-        background: #ffffff !important;
-        border: 1px solid #f0f0f0 !important;
+    [data-testid="stExpander"] summary:hover {
+        background-color: #333333 !important;
+        border-color: #555555 !important;
+    }
+    
+    [data-testid="stExpander"] summary *,
+    [data-testid="stExpander"] summary p,
+    [data-testid="stExpander"] summary div {
+        color: #ffffff !important;
+    }
+    
+    /* Expander content styling */
+    [data-testid="stExpander"] [data-testid="stExpanderDetails"] {
+        background-color: #f8f9fa !important;
+        border: 2px solid #e9ecef !important;
+        border-top: none !important;
         border-radius: 0 0 8px 8px !important;
         padding: 1rem !important;
+    }
+    
+    [data-testid="stExpander"] [data-testid="stExpanderDetails"] * {
+        color: #000000 !important;
+    }
+    
+    /* Additional expander selectors */
+    details summary {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+        border: 2px solid #333333 !important;
+        border-radius: 8px !important;
+        padding: 0.75rem 1rem !important;
+        cursor: pointer;
+        list-style: none;
+    }
+    
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+    
+    details summary * {
+        color: #ffffff !important;
+    }
+    
+    details[open] summary {
+        border-radius: 8px 8px 0 0 !important;
+        border-bottom: none !important;
+    }
+    
+    details div {
+        background-color: #f8f9fa !important;
+        border: 2px solid #e9ecef !important;
+        border-top: none !important;
+        border-radius: 0 0 8px 8px !important;
+        padding: 1rem !important;
+    }
+    
+    details div * {
         color: #000000 !important;
     }
     
@@ -394,6 +468,22 @@ def add_custom_css():
     /* Text styling overrides */
     .stMarkdown, .stText, p, h1, h2, h3, h4, h5, h6 {
         color: #000000 !important;
+    }
+    
+    /* Button text overrides */
+    [data-testid="stBaseButton-secondary"],
+    [data-testid="stBaseButton-primary"],
+    button[kind="secondary"],
+    button[kind="primary"] {
+        color: #ffffff !important;
+        background-color: #000000 !important;
+    }
+    
+    [data-testid="stBaseButton-secondary"] *,
+    [data-testid="stBaseButton-primary"] *,
+    button[kind="secondary"] *,
+    button[kind="primary"] * {
+        color: #ffffff !important;
     }
     
     /* Text input styling */
