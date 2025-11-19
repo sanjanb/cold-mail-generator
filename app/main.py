@@ -139,7 +139,7 @@ def add_custom_css():
         border-bottom: 1px solid #666666;
     }
     
-    /* Responsive design */
+    /* Responsive design improvements */
     @media (max-width: 768px) {
         .footer-content {
             flex-direction: column;
@@ -153,6 +153,73 @@ def add_custom_css():
         .header-title {
             font-size: 1.8rem;
         }
+        
+        .main {
+            padding: 1rem 0.5rem;
+        }
+        
+        .input-section {
+            padding: 1rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .header-title {
+            font-size: 1.5rem;
+        }
+        
+        .header-subtitle {
+            font-size: 0.9rem;
+        }
+        
+        .main {
+            padding: 0.5rem 0.25rem;
+        }
+    }
+    
+    /* Tool-like styling improvements */
+    .metric-container {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 4px;
+        padding: 1rem;
+        text-align: center;
+    }
+    
+    /* Better spacing for tool layout */
+    .stContainer {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Enhanced button styling */
+    .stButton > button {
+        transition: all 0.2s ease;
+        font-size: 0.95rem;
+    }
+    
+    .stButton > button:active {
+        transform: translateY(1px);
+    }
+    
+    /* Improved metrics display */
+    [data-testid="metric-container"] {
+        background: #f8f9fa;
+        border: 1px solid #e9ecef;
+        border-radius: 4px;
+        padding: 1rem;
+    }
+    
+    /* Better expander styling */
+    .streamlit-expanderHeader {
+        font-weight: 500;
+        font-size: 0.95rem;
+    }
+    
+    /* Clean dividers */
+    .element-container hr {
+        margin: 1.5rem 0;
+        border-color: #e0e0e0;
     }
     
     /* Add padding to main content to avoid footer overlap */
